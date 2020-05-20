@@ -6,7 +6,9 @@ Udacity Data Structures and Algorithms Nanodegree
 Writing efficient codes is very important. Efficiency is important in **time** and **space**.    
 Usually, there is a tradeoff between time and space efficiency. The faster **algorithms** usually need bigger **memory**, and using less **memory** slows down the program.
 
-![Comparison computational complexity from wikipedia](https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg)Comparison computational complexity. The Figure is take from [Wikipead](https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg). The x-axis shows the number of input and the y-axis shows the computational complexity of a computation.
+<img alt="Comparison computational complexity" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg" width="50%">      
+
+Comparison computational complexity. The Figure is take from [Wikipdia](https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg). The x-axis shows the number of input and the y-axis shows the computational complexity of a computation.
 
 There are two points:    
 1- As the input to an algorithm increases, the run time  of the algorithm may also increase     
