@@ -70,3 +70,22 @@ The run-time of this Task for large outputs depends mostly on two `for` loops an
 Time complexity of `append` function for a `list` object is **O(1)**. Thsu, if the number of rows in a csv file is n, then the order of each for loop computation (with two append) is **O(2n) = O(n)**. The set function in worst case has a time complexity of **O(n)**.
 
 **Order of Task 1 = O(n)**
+
+### Task 3
+```python
+longest_id = 0
+longest = 0
+
+for i in range(len(calls)):
+    if longest < int(calls[i][3]):
+        longest = int(calls[i][3])
+        longest_id = i
+
+print(calls[longest_id][0] + " spent the longest time, " + calls[longest_id][3] + " seconds, on the phone during September 2016.")
+```
+
+The tow first line: O(2) = O(1)
+The for loop: the for loop in worst case has 4 times indexing of array, two call to int() , one comparison and two assignment, therefore it has order of O( (4+2+1+2)n ) = O(9n) = O(n)
+The final line: O(4 + 4 + 3) = O(11) = O(1)
+
+**Order of Task 2 = O(n)**
