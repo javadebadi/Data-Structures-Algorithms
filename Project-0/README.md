@@ -40,3 +40,33 @@ Total operations = 26
 **Order = O(26) = O(1)**
 
 **Order of Task 0 = O(1)**
+
+
+### Task 1
+```python
+telephone_number_list = []
+
+# append telephone numbers in texts file to telephone_number_list
+for text in texts:
+    telephone_number_list.append(text[0])
+    telephone_number_list.append(text[1])
+# append telephone numbers in calls file to telephone_number_list
+for call in calls:
+    telephone_number_list.append(call[0])
+    telephone_number_list.append(call[1])
+
+# find distinct telephone numbers
+telephone_number_set = set(telephone_number_list)
+
+# print length of list of telephone numbers
+print(len(telephone_number_list))
+# print number of distinct telephone numbers
+count = len(telephone_number_set)
+print("There are " + str(count) + " different telephone numbers in the records.")
+```
+
+The run-time of this Task for large outputs depends mostly on two `for` loops and `set` function.
+
+Time complexity of `append` function for a `list` object is **O(1)**. Thsu, if the number of rows in a csv file is n, then the order of each for loop computation (with two append) is **O(2n) = O(n)**. The set function in worst case has a time complexity of **O(n)**.
+
+**Order of Task 1 = O(n)**
