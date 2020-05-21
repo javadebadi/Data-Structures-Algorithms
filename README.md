@@ -25,6 +25,10 @@ quadratic | n<sup>2</sup> | O(n<sup>2</sup>)
 The [Big O cheatsheet](https://www.bigocheatsheet.com/) describes the order of each data structure for any operation. The same for python language is [here](https://wiki.python.org/moin/TimeComplexity).
 
 ## Data Structures
+### Collection
+Collection is a generic type of data structure. It is just group of objects.
+- Don't have a particular order
+- Don't have to have objects of the same type
 
 ## Basic Algorithms
 
