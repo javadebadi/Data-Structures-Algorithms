@@ -71,7 +71,7 @@ Time complexity of `append` function for a `list` object is **O(1)**. Thsu, if t
 
 **Order of Task 1 = O(n)**
 
-### Task 3
+### Task 2
 ```python
 longest_id = 0
 longest = 0
@@ -89,3 +89,32 @@ The for loop: the for loop in worst case has 4 times indexing of array, two call
 The final line: O(4 + 4 + 3) = O(11) = O(1)
 
 **Order of Task 2 = O(n)**
+
+### Task 3
+```python
+# part A
+area_codes = list()
+mobile_prefixes = list()
+telemarketers = list()
+for call in calls:
+    if call[0][:5] == "(080)": # check if the call is started from Bangalore
+        if "(" in call[1]: # check whether the number is a fixed line
+            area_codes.append(call[1].split("(")[1].split(")")[0])
+        elif " " in call[1]: # check whether the number is a mobile number
+            mobile_prefixes.append(call[1][:4])
+        else:
+            telemarketers.append(call[1][:3])
+
+# print list of codes
+all_unique_codes = sorted(set(area_codes + mobile_prefixes + telemarketers))
+print("The numbers called by people in Bangalore have codes:")
+for code in all_unique_codes:
+    print(code)
+
+# percentage of calls from Bangalore area to Bangalore area among all calls from Bangalore
+percentage = 100 * len(area_codes) / ( len(mobile_prefixes) + len(telemarketers) )
+print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))
+```
+With similar arguments to previous tasks:
+
+**Order of Task 3 = O(n)**
