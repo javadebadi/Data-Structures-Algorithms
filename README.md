@@ -6,7 +6,7 @@ Udacity Data Structures and Algorithms Nanodegree
 Writing efficient codes is very important. Efficiency is important in **time** and **space**.    
 Usually, there is a tradeoff between time and space efficiency. The faster **algorithms** usually need bigger **memory**, and using less **memory** slows down the program.
 
-<img alt="Comparison computational complexity" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg" width="50%">      
+<img alt="Comparison computational complexity" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg" width="50%">  
 
 Comparison computational complexity. The Figure is take from [Wikipdia](https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparison_computational_complexity.svg). The x-axis shows the number of input and the y-axis shows the computational complexity of a computation.
 
@@ -25,10 +25,23 @@ quadratic | n<sup>2</sup> | O(n<sup>2</sup>)
 The [Big O cheatsheet](https://www.bigocheatsheet.com/) describes the order of each data structure for any operation. The same for python language is [here](https://wiki.python.org/moin/TimeComplexity).
 
 ## Data Structures
-### Collection
+### Arrays and Linked Lists
+#### Collection
 Collection is a generic type of data structure. It is just group of objects.
-- Don't have a particular order
-- Don't have to have objects of the same type
+- no particular order
+- no requirements to have objects of the same type
+#### Lists
+- order (access elements by ordered numbers)
+- no fixed length (add or remove elements)
+#### Arrays
+Arrays are lists which have other properties:
+- order
+- fixed size
+- elements of arrays are build next to each other in memory
+- all elements of an array have the same size
+- we can use index to point to location of each element in arrays
+
+Python `list`s are essentially dynamic arrays by these definitions. Python `string`s are arrays too.
 
 ## Basic Algorithms
 
