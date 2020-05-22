@@ -20,12 +20,24 @@ Print a message:
 September 2016.".
 """
 
-longest_id = 0
-longest = 0
+time_spent = dict()
 
-for i in range(len(calls)):
-    if longest < int(calls[i][3]):
-        longest = int(calls[i][3])
-        longest_id = i
+# sum the all of the seconds a number had spent
+for call in calls:
 
-print(calls[longest_id][0] + " spent the longest time, " + calls[longest_id][3] + " seconds, on the phone during September 2016.")
+    if call[0] in time_spent.keys():
+        time_spent[call[0]] += int(call[3])
+    else:
+        time_spent[call[0]] = int(call[3])
+
+    if call[1] in time_spent.keys():
+        time_spent[call[1]] += int(call[3])
+    else:
+        time_spent[call[1]] = int(call[3])
+
+# find the maximum values
+import operator
+longest_number = max(time_spent.iteritems(), key=operator.itemgetter(1))[0]
+longest = time_spent[longest_number]
+
+print(" {} spent the longest time, {} seconds, on the phone during September 2016.".format(longest_number, longest))
