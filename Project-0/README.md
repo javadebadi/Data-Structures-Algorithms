@@ -67,7 +67,7 @@ print("There are " + str(count) + " different telephone numbers in the records."
 
 The run-time of this Task for large outputs depends mostly on two `for` loops and `set` function.
 
-Time complexity of `append` function for a `list` object is **O(1)**. Thsu, if the number of rows in a csv file is n, then the order of each for loop computation (with two append) is **O(2n) = O(n)**. The set function in worst case has a time complexity of **O(n)**.
+Time complexity of `append` function for a `list` object is **O(1)**. Thus, if the number of rows in a csv file is n, then the order of each for loop computation (with two append) is **O(2n) = O(n)**. The set function in worst case has a time complexity of **O(n)**.
 
 **Order of Task 1 = O(n)**
 
@@ -146,5 +146,6 @@ telemarketers = sorted(telemarketers)
 for number in telemarketers:
     print(number)
 ```
+In this task, one of the for loop has if statement which looks for a set to see whether the element is inside the set or not. Thus, in worst case the complexity of this loop is of order O(n<sup>2</sup>). The other parts of the code are of order O(n). 
 
 **Order of Task 4 = O(n<sup>2</sup>)**
