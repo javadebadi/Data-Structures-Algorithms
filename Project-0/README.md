@@ -118,3 +118,33 @@ print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other 
 With similar arguments to previous tasks:
 
 **Order of Task 3 = O(n)**
+
+### Task 4
+```python
+text_recieving_numbers = set()
+text_sending_numbers = set()
+call_recieving_numbers = set()
+call_making_numbers = set()
+
+for text in texts:
+    text_sending_numbers.add(text[0])
+    text_recieving_numbers.add(text[1])
+
+for call in calls:
+    call_making_numbers.add(call[0])
+    call_recieving_numbers.add(call[1])
+
+non_telemarketers = text_sending_numbers.union(text_recieving_numbers, call_recieving_numbers)
+
+telemarketers = set()
+for number in call_making_numbers:
+    if number not in non_telemarketers:
+        telemarketers.add(number)
+telemarketers = sorted(telemarketers)
+
+"These numbers could be telemarketers: "
+for number in telemarketers:
+    print(number)
+```
+
+**Order of Task 4 = O(n<sup>2</sup>)**
