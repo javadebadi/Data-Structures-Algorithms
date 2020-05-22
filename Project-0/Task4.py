@@ -38,14 +38,8 @@ for call in calls:
     call_making_numbers.add(call[0])
     call_recieving_numbers.add(call[1])
 
-non_telemarketers = text_sending_numbers.union(text_recieving_numbers, call_recieving_numbers)
+telemarketers = call_making_numbers - (text_sending_numbers | text_recieving_numbers | call_recieving_numbers)
 
-telemarketers = set()
-for number in call_making_numbers:
-    if number not in non_telemarketers:
-        telemarketers.add(number)
-telemarketers = sorted(telemarketers)
-
-"These numbers could be telemarketers: "
+print("These numbers could be telemarketers: ")
 for number in telemarketers:
     print(number)
