@@ -45,20 +45,20 @@ The percentage should have 2 decimal digits
 """
 
 # part A
-area_codes = list()
-mobile_prefixes = list()
-telemarketers = list()
+area_codes = set()
+mobile_prefixes = set()
+telemarketers = set()
 for call in calls:
     if call[0][:5] == "(080)": # check if the call is started from Bangalore
         if "(" in call[1]: # check whether the number is a fixed line
-            area_codes.append(call[1].split("(")[1].split(")")[0])
+            area_codes.add(call[1].split("(")[1].split(")")[0])
         elif " " in call[1]: # check whether the number is a mobile number
-            mobile_prefixes.append(call[1][:4])
+            mobile_prefixes.add(call[1][:4])
         else:
-            telemarketers.append(call[1][:3])
+            telemarketers.add(call[1][:3])
 
 # print list of codes
-all_unique_codes = sorted(set(area_codes + mobile_prefixes + telemarketers))
+all_unique_codes = sorted(area_codes | mobile_prefixes | telemarketers)
 print("The numbers called by people in Bangalore have codes:")
 for code in all_unique_codes:
     print(code)
@@ -71,7 +71,6 @@ for call in calls:
         total_outgoing_calls_from_bangalore += 1
     if call[0][:5] == "(080)" and call[1][:5] == "(080)":
         banglore_to_banglore_calls += 1
-
 
 percentage = 100 * banglore_to_banglore_calls / total_outgoing_calls_from_bangalore
 print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))
