@@ -3,6 +3,16 @@ class Node:
         self.value = value
         self.next = None
 
+def print_linked_list(head):
+    """prints all element of a linked list
+    param head: is a linked list
+    """
+    current_node = head
+
+    while current_node is not None:
+        print(current_node.value)
+        current_node = current_node.next
+
 
 
 head = Node(2)  # head is the first element of a linked list
@@ -12,9 +22,5 @@ head.next.next = Node(4)
 head.next.next.next = Node(3)
 head.next.next.next.next = Node(5)
 
-# test the linked list
-print("head value                        = " + str(head.value))
-print("next of head value                = " + str(head.next.value))
-print("next next of head value           = " + str(head.next.next.value))
-print("next next next of head value      = " + str(head.next.next.next.value))
-print("next next next next of head value = " + str(head.next.next.next.next.value))
+# print elements of the linked list
+print_linked_list(head)
