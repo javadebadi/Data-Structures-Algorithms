@@ -63,6 +63,15 @@ print("The numbers called by people in Bangalore have codes:")
 for code in all_unique_codes:
     print(code)
 
-# percentage of calls from Bangalore area to Bangalore area among all calls from Bangalore
-percentage = 100 * len(area_codes) / ( len(mobile_prefixes) + len(telemarketers) )
+# percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.
+total_outgoing_calls_from_bangalore = 0
+banglore_to_banglore_calls = 0
+for call in calls:
+    if call[0][:5] == "(080)":  # check if the call is started from Bangalore
+        total_outgoing_calls_from_bangalore += 1
+    if call[0][:5] == "(080)" and call[1][:5] == "(080)":
+        banglore_to_banglore_calls += 1
+
+
+percentage = 100 * banglore_to_banglore_calls / total_outgoing_calls_from_bangalore
 print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))
