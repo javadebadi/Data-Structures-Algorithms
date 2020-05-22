@@ -13,14 +13,28 @@ def print_linked_list(head):
         print(current_node.value)
         current_node = current_node.next
 
+def create_linked_list(input_list):
+    """
+    Function to create a linked list
+    param input_list: a list of integers
+    return: head node of the linked list
+    """
+    head = None
+    tail = None
+
+    for value in input_list:
+
+        if head is None:
+            head = Node(value)
+            tail = head # when we only have 1 node, head and tail refer to the same node
+        else:
+            tail.next = Node(value) # attach the new node to the `next` of tail
+            tail = tail.next # update the tail
+            
+    return head
 
 
-head = Node(2)  # head is the first element of a linked list
-head.next = Node(1) # create a new Node object and assign the object (its location in memory) to head.next
-# add other nodes
-head.next.next = Node(4)
-head.next.next.next = Node(3)
-head.next.next.next.next = Node(5)
-
+# create a linked input
+linked_list = create_linked_list([1,0,10,15])
 # print elements of the linked list
-print_linked_list(head)
+print_linked_list(linked_list)
