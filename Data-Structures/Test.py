@@ -13,8 +13,10 @@ linked_list.print_all()
 print("      Reverse LinkedList ======>")
 linked_list.reverse().print_all()
 print("      Prepend element to LinkedList =====>")
-linked_list.prepend("-1000")
+linked_list.prepend(-1000)
 linked_list.print_all()
+print("      Search value in elements of the LinkedList and return node =====>")
+print(linked_list.search(-1000))
 
 
 print(" =================================")

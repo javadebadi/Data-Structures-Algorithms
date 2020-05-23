@@ -79,3 +79,14 @@ class LinkedList:
 
         output_list.head = prev_node
         return output_list
+
+    def search(self, value):
+        """searches the linked list for a value and returns the Node
+        """
+        node = self.head
+        while node:
+            if node.value == value:
+                return node
+            node = node.next
+
+        return None
