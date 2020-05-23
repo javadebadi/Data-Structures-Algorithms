@@ -40,7 +40,14 @@ Total operations = 26
 **Order = O(26) = O(1)**
 
 **Order of Task 0 = O(1)**
+>- Task0
+      . Worst case complexity: O(1)
+      . Algorithm:
+            - print string to screen (complexity = O(1))
+            - string concatenation (complexity = O(1))
+            - Indexing 7 elements from calls and texts list(complexity = O(1))
 
+**Time Complexity Order of Task 0 = O(1)**
 
 ### Task 1
 ```python
@@ -58,8 +65,6 @@ for call in calls:
 # find distinct telephone numbers
 telephone_number_set = set(telephone_number_list)
 
-# print length of list of telephone numbers
-print(len(telephone_number_list))
 # print number of distinct telephone numbers
 count = len(telephone_number_set)
 print("There are " + str(count) + " different telephone numbers in the records.")
@@ -69,55 +74,97 @@ The run-time of this Task for large outputs depends mostly on two `for` loops an
 
 Time complexity of `append` function for a `list` object is **O(1)**. Thus, if the number of rows in a csv file is n, then the order of each for loop computation (with two append) is **O(2n) = O(n)**. The set function in worst case has a time complexity of **O(n)**.
 
-**Order of Task 1 = O(n)**
+>- Task1
+      . Worst case complexity: O(n)
+      . Algorithm:
+            - Create a list(complexity = O(1))
+            - Loop over texts and calls, and append elements of each iteration to the list(complexity = O(n))
+            - Create a set(complexity = O(1))
+            - Find length of the set1(complexity = O(1))
+            - assign value to int and print message to screen(complexity = O(1))
+
+**Time Complexity Order of Task 1 = O(n)**
 
 ### Task 2
 ```python
-longest_id = 0
-longest = 0
+time_spent = dict()
 
-for i in range(len(calls)):
-    if longest < int(calls[i][3]):
-        longest = int(calls[i][3])
-        longest_id = i
+# sum the all of the seconds a number had spent
+for call in calls:
 
-print(calls[longest_id][0] + " spent the longest time, " + calls[longest_id][3] + " seconds, on the phone during September 2016.")
+    if call[0] in time_spent.keys():
+        time_spent[call[0]] += int(call[3])
+    else:
+        time_spent[call[0]] = int(call[3])
+
+    if call[1] in time_spent.keys():
+        time_spent[call[1]] += int(call[3])
+    else:
+        time_spent[call[1]] = int(call[3])
+
+# find the maximum values
+import operator
+longest_number = max(time_spent.iteritems(), key=operator.itemgetter(1))[0]
+longest = time_spent[longest_number]
+
+print(" {} spent the longest time, {} seconds, on the phone during September 2016.".format(longest_number, longest))
+
 ```
+>- Task2
+      . Worst case complexity: O(n)
+      . Algorithm:
+            - Create a dictionary(complexity = O(1))
+            - Loop over elements in calls and increment values for dictionary keys(complexity = O(n))
+            - Find maximum of dictionary using dictionary max function from operator library(complexity = O(n))
+            - Indexing one element from dictionary and print a string(complexity = O(1))
 
-The tow first line: O(2) = O(1)
-The for loop: the for loop in worst case has 4 times indexing of array, two call to int() , one comparison and two assignment, therefore it has order of O( (4+2+1+2)n ) = O(9n) = O(n)
-The final line: O(4 + 4 + 3) = O(11) = O(1)
-
-**Order of Task 2 = O(n)**
+**Time Complexity Order of Task 2 = O(n)**
 
 ### Task 3
 ```python
 # part A
-area_codes = list()
-mobile_prefixes = list()
-telemarketers = list()
+area_codes = set()
+mobile_prefixes = set()
+telemarketers = set()
 for call in calls:
     if call[0][:5] == "(080)": # check if the call is started from Bangalore
         if "(" in call[1]: # check whether the number is a fixed line
-            area_codes.append(call[1].split("(")[1].split(")")[0])
+            area_codes.add(call[1].split("(")[1].split(")")[0])
         elif " " in call[1]: # check whether the number is a mobile number
-            mobile_prefixes.append(call[1][:4])
+            mobile_prefixes.add(call[1][:4])
         else:
-            telemarketers.append(call[1][:3])
+            telemarketers.add(call[1][:3])
 
 # print list of codes
-all_unique_codes = sorted(set(area_codes + mobile_prefixes + telemarketers))
+all_unique_codes = sorted(area_codes | mobile_prefixes | telemarketers)
 print("The numbers called by people in Bangalore have codes:")
 for code in all_unique_codes:
     print(code)
 
-# percentage of calls from Bangalore area to Bangalore area among all calls from Bangalore
-percentage = 100 * len(area_codes) / ( len(mobile_prefixes) + len(telemarketers) )
+# percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.
+total_outgoing_calls_from_bangalore = 0
+banglore_to_banglore_calls = 0
+for call in calls:
+    if call[0][:5] == "(080)":  # check if the call is started from Bangalore
+        total_outgoing_calls_from_bangalore += 1
+    if call[0][:5] == "(080)" and call[1][:5] == "(080)":
+        banglore_to_banglore_calls += 1
+
+percentage = 100 * banglore_to_banglore_calls / total_outgoing_calls_from_bangalore
 print("{:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format(percentage))
 ```
-With similar arguments to previous tasks:
+>- Task3
+      . Worst case complexity: O(n log(n))
+      . Algorithm:
+            - Create sets(complexity = O(1))
+            - Loop over calls and add one element each time to set(complexity = O(n))
+            - Union of the sets (complexity = O(sum of elements) = O(n))
+            - sort set using python sorted (complexity = O(n log(n)))
+            - Loop over unique codes and print number (complexity = O(n))
+            - Loop over calls and check Bangalore condition and add increment two int numbers (complexity = O(n))
+            - A division, multiplication and print (complexity = O(1))
 
-**Order of Task 3 = O(n)**
+**Time Complexity Order of Task 3 = O(n log(n))**
 
 ### Task 4
 ```python
@@ -134,18 +181,19 @@ for call in calls:
     call_making_numbers.add(call[0])
     call_recieving_numbers.add(call[1])
 
-non_telemarketers = text_sending_numbers.union(text_recieving_numbers, call_recieving_numbers)
+telemarketers = call_making_numbers - (text_sending_numbers | text_recieving_numbers | call_recieving_numbers)
 
-telemarketers = set()
-for number in call_making_numbers:
-    if number not in non_telemarketers:
-        telemarketers.add(number)
-telemarketers = sorted(telemarketers)
-
-"These numbers could be telemarketers: "
+print("These numbers could be telemarketers: ")
 for number in telemarketers:
     print(number)
 ```
-In this task, one of the for loop has if statement which looks for a set to see whether the element is inside the set or not. Thus, in worst case the complexity of this loop is of order O(n<sup>2</sup>). The other parts of the code are of order O(n). 
+>- Task4
+      . Worst case complexity: O(n)
+      . Algorithm:
+            - Create sets(complexity = O(1))
+            - Loop over text and call, and add one element each time to sets(complexity = O(n))
+            - Union of the sets(complexity = O(sum of elements) = O(n))
+            - Set complement (set1 - set2)(complexity = O(set1) = O(n))
+            - Loop over telemarketers and print number(complexity = O(n))
 
-**Order of Task 4 = O(n<sup>2</sup>)**
+**Time Complexity Order of Task 4 = O(n)**
