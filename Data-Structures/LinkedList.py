@@ -49,11 +49,3 @@ class LinkedList:
             list_of.append(node.value)
 
         return list_of
-
-
-linked_list = LinkedList()
-linked_list.append(0.2)
-linked_list.append(1)
-linked_list.append(0)
-# print elements of the linked list
-linked_list.print_all()
