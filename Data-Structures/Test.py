@@ -1,16 +1,22 @@
 from LinkedList import *
 from DoublyLinkedList import *
 
-
+print(" ===========================")
 print(" ===== Test LinkedList =====")
+print(" ===========================")
 linked_list = LinkedList()
 linked_list.append(0.2)
 linked_list.append(1)
 linked_list.append(0)
 # print elements of the linked list
 linked_list.print_all()
+print("      Reverse LinkedList =>")
+linked_list.reverse().print_all()
 
+
+print(" =================================")
 print(" ===== Test DoublyLinkedList =====")
+print(" =================================")
 doubly_linked_list = DoublyLinkedList()
 doubly_linked_list.append(1)
 doubly_linked_list.append(2)

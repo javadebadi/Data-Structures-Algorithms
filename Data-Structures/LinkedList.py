@@ -49,3 +49,23 @@ class LinkedList:
             list_of.append(node.value)
 
         return list_of
+
+    def __iter__(self):
+        node = self.head
+        while node:
+            yield node.value
+            node = node.next
+
+    def reverse(self):
+        """return a LinkedList which is the reverse"""
+        output_list = LinkedList()
+
+        prev_node = None
+
+        for value in self:
+            new_node = Node(value)
+            new_node.next = prev_node
+            prev_node = new_node
+
+        output_list.head = prev_node
+        return output_list
