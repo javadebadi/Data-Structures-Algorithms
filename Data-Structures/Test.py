@@ -14,9 +14,15 @@ print("      Reverse LinkedList ======>")
 linked_list.reverse().print_all()
 print("      Prepend element to LinkedList =====>")
 linked_list.prepend(-1000)
+linked_list.prepend(-1000)
 linked_list.print_all()
 print("      Search value in elements of the LinkedList and return node =====>")
 print(linked_list.search(-1000))
+print("      Remove nodes with specfic value from LinkedList =====>")
+linked_list.remove(-1000) # Removes first node with value -1000
+linked_list.print_all()
+print("      Chack pop method which return value of the first element and removes it")
+print(linked_list.pop())
 
 
 print(" =================================")

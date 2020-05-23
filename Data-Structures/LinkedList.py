@@ -89,4 +89,32 @@ class LinkedList:
                 return node
             node = node.next
 
-        return None
+        raise ValueError("Value not found in the list.")
+
+    def remove(self, value):
+        """ Delete the first node with the desired data. """
+        if self.head is None:
+            return
+
+        if self.head.value == value:
+            self.head = self.head.next
+            return
+
+        node = self.head
+        while node.next:
+            if node.next.value == value:
+                node.next = node.next.next
+                return
+            node = node.next
+
+        raise ValueError("Value not found in the list.")
+
+    def pop(self):
+        """ Return the first node's value and remove it from the list. """
+        if self.head == None:
+            return None
+
+        val = self.head.value
+        self.head = self.head.next
+
+        return val
