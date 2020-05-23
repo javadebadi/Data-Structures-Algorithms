@@ -35,6 +35,16 @@ class LinkedList:
         node.next = Node(value)
         return
 
+    # prepend element to beginning of LinkedList
+    def prepend(self, value):
+        if self.head is None:
+            self.head = Node(value)
+            return
+
+        new_node  = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+
     # convert LinkedList to python list
     def to_list(self):
 
