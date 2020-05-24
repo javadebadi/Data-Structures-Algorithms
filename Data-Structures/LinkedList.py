@@ -118,3 +118,18 @@ class LinkedList:
         self.head = self.head.next
 
         return val
+
+    def size(self):
+        """returns size of the LinkedList"""
+        size = 0
+        if self.head == None:
+            return size
+        else:
+            size += 1
+            node = self.head
+
+        while node.next:
+            size += 1
+            node = node.next
+
+        return size

@@ -23,6 +23,7 @@ linked_list.remove(-1000) # Removes first node with value -1000
 linked_list.print_all()
 print("      Chack pop method which return value of the first element and removes it")
 print(linked_list.pop())
+print("size of the linked array = {}".format(linked_list.size()))
 
 
 print(" =================================")
