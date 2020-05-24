@@ -28,7 +28,7 @@ print("     Insert")
 linked_list.insert(-50,0)
 linked_list.insert(50,10)
 linked_list.insert(50,2)
-linked_list.insert(50,2.5)
+#linked_list.insert(50,2.5)  #  will raise ValueError
 linked_list.print_all()
 
 
