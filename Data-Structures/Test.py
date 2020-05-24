@@ -24,6 +24,13 @@ linked_list.print_all()
 print("      Chack pop method which return value of the first element and removes it")
 print(linked_list.pop())
 print("size of the linked array = {}".format(linked_list.size()))
+print("     Insert")
+linked_list.insert(-50,0)
+linked_list.insert(50,10)
+linked_list.insert(50,2)
+linked_list.insert(50,2.5)
+linked_list.print_all()
+
 
 
 print(" =================================")

@@ -133,3 +133,35 @@ class LinkedList:
             node = node.next
 
         return size
+
+    def insert(self, value, pos):
+        """ Insert value at pos position in the LinkedList
+        param pos: position of insertion
+        param value: value to insert in position pos
+        If pos is larger than the
+        length of the list, append to the end of the list. """
+
+        if type(pos) != int or pos < 0:
+            raise ValueError("Position value is invalid")
+
+        if self.head == None:
+            self.head.value = value
+            return
+
+        if pos == 0:
+            self.prepend(value)
+            return
+        elif pos >= self.size():
+            self.append(value)
+            return
+
+        current_pos = pos
+        node = self.head
+        while current_pos is not 1:
+            node = node.next
+            current_pos -= 1
+
+        old_next_node = node.next
+        new_next_node = Node(value)
+        node.next = new_next_node
+        new_next_node.next = old_next_node
