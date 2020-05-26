@@ -1,1 +1,20 @@
+from StackArray import *
 from Stack import *
+
+print(" ============ Stack of Linked List ========== ")
+print(" ===== create Stack object =====")
+stack = Stack()
+print(" ===== print Stack object =====")
+print(stack)
+print(" ===== push elements to Stack =====")
+stack.push(-100)
+stack.push(-10)
+stack.push(0)
+stack.push(10)
+stack.push(100)
+print(" ===== print Stack object ===== ")
+print(stack)
+print(" ===== pop top value of Stack =====")
+print(stack.pop())
+print(" ===== print Stack object =====")
+print(stack)
