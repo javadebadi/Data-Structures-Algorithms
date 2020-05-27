@@ -4,6 +4,10 @@ class MyList:
         the initial_size is added as a parameter so the programmer
         could assign specific amount of meomory if he/she knows how
         much element he will had in the list
+
+        Time Complexity:
+            - no content provided = O(1)
+            - with content: O(n)
         """
         self.max_size = initial_size
         self.items = [None] * initial_size
@@ -12,5 +16,53 @@ class MyList:
         for elem in content:
             self.items.append(elem)
 
+    def __getitem__(self, index):
+        """getting value of the item with specified index
+
+        Args:
+            index (int): index of the item
+
+        Raises:
+            IndexError: out of range access
+
+        Returns:
+            value of self.items[index]
+
+        Time complexity:
+            O(1)
+        """
+        if index >= 0 and index < self.max_size:
+            return self.items[index]
+        else:
+            raise IndexError("Getting value from an out of range index")
+
+    def __setitem__(self, index, value):
+        """setting value to item with specified index
+
+        Args:
+            index (int): index of the item
+            value: value to add to items
+
+        Raises:
+            IndexError: setting value to out of range index
+
+        Returns:
+            no returns
+
+        Time complexity:
+            O(1)
+        """
+
+        if index >= 0 and index < self.max_size:
+            self.items[index] = value
+        else:
+            raise IndexError("Setting value for out of range index")
+
 
 myList = MyList(["a", "b"], 10)
+print(" -----> set value 'c' to index 2")
+myList[2] = "c"
+print(" -----> get value from index 2")
+print(myList[2])
+print(" -----> get value form index 10")
+print(myList[10])
