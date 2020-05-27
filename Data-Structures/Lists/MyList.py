@@ -13,8 +13,8 @@ class MyList:
         self.items = [None] * initial_size
         self.size = 0
 
-        for elem in content:
-            self.items.append(elem)
+        for index in range(len(content)):
+            self.items[index] = content[index]
             self.size += 1
 
     def __getitem__(self, index):
@@ -60,6 +60,17 @@ class MyList:
         else:
             raise IndexError("Setting value for out of range index")
 
+    def __add__(self, other):
+        result = MyList(initial_size = self.capacity + other.capacity)
+
+        for index in range(self.size):
+            result.append(self.items[index])
+
+        for index in range(other.size):
+            result.append(other.items[index])
+
+        return result
+
     def __increaseCapacity(self):
         """increase the capacity for class container
 
@@ -91,7 +102,7 @@ class MyList:
         if self.size >= self.capacity:
             self.__increaseCapacity()
 
-        self.items.append(value)
+        self.items[self.size] = value
         self.size += 1
 
 
@@ -101,9 +112,12 @@ print(" -----> set value '2' to index 2")
 myList[2] = "2"
 print(" -----> get value from index 2")
 print(myList[2])
-#print(" -----> get value form index 10")
+print(" -----> get value form index 10")
 #print(myList[10])
 print(" -----> append values")
 myList.append("3")
 myList.append("4")
 print(myList.capacity)
+myList1 = MyList(content = ["Jack","John"])
+myList2 = MyList(content=["Javad", "Joe"])
+print((myList1 + myList2)[1])
