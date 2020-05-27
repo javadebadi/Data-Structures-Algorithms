@@ -9,7 +9,7 @@ class MyList:
             - no content provided = O(1)
             - with content: O(n)
         """
-        self.max_size = initial_size
+        self.capacity = initial_size
         self.items = [None] * initial_size
         self.size = 0
 
@@ -31,7 +31,7 @@ class MyList:
         Time complexity:
             O(1)
         """
-        if index >= 0 and index < self.max_size:
+        if index >= 0 and index < self.capacity:
             return self.items[index]
         else:
             raise IndexError("Getting value from an out of range index")
@@ -53,10 +53,25 @@ class MyList:
             O(1)
         """
 
-        if index >= 0 and index < self.max_size:
+        if index >= 0 and index < self.capacity:
             self.items[index] = value
         else:
             raise IndexError("Setting value for out of range index")
+
+        def __increaseCapacity(self):
+            """increase the capacity for class container
+
+            Time complexity:
+                O(n)
+            """
+
+            new_capacity = int(2*self.capacity)
+            self.capacity = new_capacity
+
+            new_items = [None]*new_capacity
+            for index in range(self.size):
+                new_list[index] = self.items[index]
+            self.items = new_items
 
 
 myList = MyList(["a", "b"], 10)
