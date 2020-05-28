@@ -164,7 +164,27 @@ class MyList:
         for i in range(index, self.size -1):
             self.items[i] = self.items[i+1]
 
-        self.size -= 1`
+        self.size -= 1
+
+    def __eq__(self, other):
+        """"
+        Args:
+            other (MyList): a MyList object
+
+        Returns:
+            result (bool): whether self and other are equal or not
+
+        Time complexity:
+            O(n)
+        """
+        if self.size != other.size:
+            return False
+
+        for index in range(self.size):
+            if self.items[index] != other.items[index]:
+                return False
+
+        return True
 
 
 myList = MyList(["0", "1"], 3)
@@ -187,3 +207,6 @@ print(myList[2])
 print(" -----> delete value of index")
 del myList[2]
 print(myList[2])
+print(" -----> equlity test")
+print("myList == MyList : {}".format(myList == myList))
+print("myList1 == myList2: {}".format(myList1 == myList2))
