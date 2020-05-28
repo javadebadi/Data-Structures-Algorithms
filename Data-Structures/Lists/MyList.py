@@ -61,6 +61,17 @@ class MyList:
             raise IndexError("Setting value for out of range index")
 
     def __add__(self, other):
+        """concatinates to objects
+
+        Args:
+            other (MyList): another MyList object
+
+        Returns:
+            result (MyList): returns concations of self and other object
+
+        Time complexity:
+            O(n)
+        """
         result = MyList(initial_size = self.capacity + other.capacity)
 
         for index in range(self.size):
@@ -75,7 +86,7 @@ class MyList:
         """increase the capacity for class container
 
         Time complexity:
-            O(n)
+            O(1) amortized complexity
         """
 
         new_capacity = int(2*self.capacity)
@@ -105,6 +116,44 @@ class MyList:
         self.items[self.size] = value
         self.size += 1
 
+    def insert(self, index, value):
+        """inserts value in index = index of items
+        if the index is bigger than self.size then
+        it adds the value to end of the items list
+
+        Args:
+            index (int): index where value needs to be inserted
+            value: the value to insert
+
+        Raises:
+            IndexError: if the index is less than 0
+
+        Returs:
+            no returns
+
+        Time complexity:
+            O(n)
+        """
+        if index < 0:
+            raise IndexError("insertion to negative index is not allowed")
+
+        if self.size == self.capacity:
+            self.__increaseCapacity()
+
+        if index >= self.size:
+            self.append(value)
+        else:
+            new_items = [None]*self.capacity
+            for i in range(self.size + 1):
+                if i < index:
+                    new_items[i] = self.items[i]
+                elif i == index:
+                    new_items[i] = value
+                else:
+                    new_items[i] = self.items[i-1]
+
+            self.items = new_items
+
 
 
 myList = MyList(["0", "1"], 3)
@@ -121,3 +170,6 @@ print(myList.capacity)
 myList1 = MyList(content = ["Jack","John"])
 myList2 = MyList(content=["Javad", "Joe"])
 print((myList1 + myList2)[1])
+print(" -----> insert value 'Javad' to index 0 ")
+myList.insert(2, "javad")
+print(myList[2])
