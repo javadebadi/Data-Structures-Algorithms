@@ -186,6 +186,14 @@ class MyList:
 
         return True
 
+    def __iter__(self):
+        """
+        Time complexity:
+            O(n)
+        """
+        for i in range(self.size):
+            yield self.items[i]
+
 
 myList = MyList(["0", "1"], 3)
 print(" -----> set value '2' to index 2")
@@ -208,5 +216,8 @@ print(" -----> delete value of index")
 del myList[2]
 print(myList[2])
 print(" -----> equlity test")
-print("myList == MyList : {}".format(myList == myList))
+print("myList == MyList: {}".format(myList == myList))
 print("myList1 == myList2: {}".format(myList1 == myList2))
+print(" -----> iteraction over myList1 and print its items")
+for i, item in enumerate(myList1):
+    print(" item {}: {}".format(i,item))
