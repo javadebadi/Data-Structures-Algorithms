@@ -194,6 +194,13 @@ class MyList:
         for i in range(self.size):
             yield self.items[i]
 
+    def __len__(self):
+        """
+        Time complexity:
+            O(1)
+            If we didn't keep track of size of the items, the complexity would have been O(n)
+        """
+        return self.size
 
 myList = MyList(["0", "1"], 3)
 print(" -----> set value '2' to index 2")
@@ -221,3 +228,6 @@ print("myList1 == myList2: {}".format(myList1 == myList2))
 print(" -----> iteraction over myList1 and print its items")
 for i, item in enumerate(myList1):
     print(" item {}: {}".format(i,item))
+print(" -----> lenght of the object")
+print("len(myList) = {}".format(len(myList)))
+print("lend(myList1) = {}".format(len(myList1)))
