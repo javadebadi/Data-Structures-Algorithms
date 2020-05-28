@@ -143,16 +143,9 @@ class MyList:
         if index >= self.size:
             self.append(value)
         else:
-            new_items = [None]*self.capacity
-            for i in range(self.size + 1):
-                if i < index:
-                    new_items[i] = self.items[i]
-                elif i == index:
-                    new_items[i] = value
-                else:
-                    new_items[i] = self.items[i-1]
-
-            self.items = new_items
+            for i in range(self.size -1, index - 1, -1):
+                self.items[i+1] = self.items[i]
+            self.items[index] = value
 
 
 
