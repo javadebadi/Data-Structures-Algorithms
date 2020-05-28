@@ -202,6 +202,23 @@ class MyList:
         """
         return self.size
 
+    def __contains__(self, value):
+        """
+        Args:
+            value: a value to look up in items
+
+        Returns:
+            (bool): True when the value exist in items, False otherwise
+
+        Time complexity:
+            O(n)
+        """
+        for i in range(self.size):
+            if self.items[i] == value:
+                return True
+
+        return False
+
 myList = MyList(["0", "1"], 3)
 print(" -----> set value '2' to index 2")
 myList[2] = "2"
@@ -231,3 +248,4 @@ for i, item in enumerate(myList1):
 print(" -----> lenght of the object")
 print("len(myList) = {}".format(len(myList)))
 print("lend(myList1) = {}".format(len(myList1)))
+print("is 'Javad' in myList2: {}".format("Javad" in myList2))
