@@ -147,6 +147,24 @@ class MyList:
                 self.items[i+1] = self.items[i]
             self.items[index] = value
 
+        self.size += 1
+
+
+    def __delitem__(self, index):
+        """delete the value in specified index
+        Args
+            index (int): index to be deleted
+
+        Returns:
+            no return
+
+        Time Complexity:
+            O(n)
+        """
+        for i in range(index, self.size -1):
+            self.items[i] = self.items[i+1]
+
+        self.size -= 1`
 
 
 myList = MyList(["0", "1"], 3)
@@ -165,4 +183,7 @@ myList2 = MyList(content=["Javad", "Joe"])
 print((myList1 + myList2)[1])
 print(" -----> insert value 'Javad' to index 0 ")
 myList.insert(2, "javad")
+print(myList[2])
+print(" -----> delete value of index")
+del myList[2]
 print(myList[2])
