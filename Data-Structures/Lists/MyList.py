@@ -232,6 +232,19 @@ class MyList:
         s += "]"
         return s
 
+    def __repr__(self):
+        """
+        Time complexity:
+            O(n)
+        """
+        s = "MyList(["
+        for i in range(self.size):
+            s += repr(self.items[i])
+            if i < self.size - 1:
+                s += ", "
+        s += "])"
+        return s
+
 myList = MyList(["0", "1"], 3)
 print(" -----> set value '2' to index 2")
 myList[2] = "2"
@@ -264,3 +277,5 @@ print("lend(myList1) = {}".format(len(myList1)))
 print("is 'Javad' in myList2: {}".format("Javad" in myList2))
 print(" -----> print myList object")
 print(myList)
+print(" -----> eval myList object")
+print(repr(myList))
