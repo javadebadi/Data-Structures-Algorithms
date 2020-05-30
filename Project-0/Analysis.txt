@@ -1,0 +1,69 @@
+-------------------------------------------
+---------------- TASK 0 -------------------
+-------------------------------------------
+- Task0
+      . Worst case complexity: O(1)
+      . Algorithm:
+            - print string to screen (complexity = O(1))
+            - string concatenation (complexity = O(1))
+            - Indexing 7 elements from calls and texts list(complexity = O(1))
+
+**Time Complexity Order of Task 0 = O(1)**
+
+-------------------------------------------
+---------------- TASK 1 -------------------
+-------------------------------------------
+- Task1
+      . Worst case complexity: O(n)
+      . Algorithm:
+            - Create a list(complexity = O(1))
+            - Loop over texts and calls, and append elements of each iteration to the list(complexity = O(n))
+            - Create a set(complexity = O(1))
+            - Find length of the set1(complexity = O(1))
+            - assign value to int and print message to screen(complexity = O(1))
+
+**Time Complexity Order of Task 1 = O(n)**
+
+-------------------------------------------
+---------------- TASK 2 -------------------
+-------------------------------------------
+- Task2
+      . Worst case complexity: O(n)
+      . Algorithm:
+            - Create a dictionary(complexity = O(1))
+            - Loop over elements in calls and increment values for dictionary keys(complexity = O(n))
+            - Find maximum of dictionary using dictionary max function from operator library(complexity = O(n))
+            - Indexing one element from dictionary and print a string(complexity = O(1))
+
+**Time Complexity Order of Task 2 = O(n)**
+
+
+-------------------------------------------
+---------------- TASK 3 -------------------
+-------------------------------------------
+- Task3
+      . Worst case complexity: O(n log(n))
+      . Algorithm:
+            - Create sets(complexity = O(1))
+            - Loop over calls and add one element each time to set(complexity = O(n))
+            - Union of the sets (complexity = O(sum of elements) = O(n))
+            - sort set using python sorted (complexity = O(n log(n)))
+            - Loop over unique codes and print number (complexity = O(n))
+            - Loop over calls and check Bangalore condition and add increment two int numbers (complexity = O(n))
+            - A division, multiplication and print (complexity = O(1))
+
+**Time Complexity Order of Task 3 = O(n log(n))**
+
+-------------------------------------------
+---------------- TASK 4 -------------------
+-------------------------------------------
+- Task4
+      . Worst case complexity: O(n)
+      . Algorithm:
+            - Create sets(complexity = O(1))
+            - Loop over text and call, and add one element each time to sets(complexity = O(n))
+            - Union of the sets(complexity = O(sum of elements) = O(n))
+            - Set complement (set1 - set2)(complexity = O(set1) = O(n))
+            - Loop over telemarketers and print number(complexity = O(n))
+
+**Time Complexity Order of Task 4 = O(n)**

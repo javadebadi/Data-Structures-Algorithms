@@ -43,6 +43,24 @@ Arrays are lists which have other properties:
 
 Python `list`s are essentially dynamic arrays by these definitions. Python `string`s are arrays too.
 
+### Maps and Hashing
+
+#### Set
+Set is a data structure which is similar to list, but :
+- set does not have intrinsic order unlike list
+- No value is repeated in set
+
+#### Map
+Map is a set based data structure. Each element in map is pairwise element of <key, value>. The keys in Map data structure has a set data structure.
+
+Python dictionary `dict` is a built-in map data structure.
+
+#### Hash function
+Hash function is maps a **value** to **hash value**.     
+Hash functions are these really incredible `magic` functions which can map data of any size to a fixed size data. This fixed sized data is often called hash code or hash digest.   
+Hash Maps    
+Constant time lookups
+
 ## Basic Algorithms
 
 ## Advanced Algorithms
