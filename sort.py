@@ -53,9 +53,25 @@ def test_sort_algorithm(function, test_list = range(10,-1,-1), verbose = False):
     sort_time = (toc - tic)
     return sort_time
 
+def mergeSort(test_list):
+    """Using merge algortim to sort items in test_list
+
+    Args:
+        test_list (list): list of items
+
+    Returns:
+        ---
+
+    Time complexity:
+        O(n log(n))
+    """
+    pass
+
+
 # dictionary of algorithm
 algorithms = dict()
 algorithms["selection sort"] = (selectionSort, {})
+algorithms["merge sort"] = (mergeSort, {})
 
 # test sort algortims
 n = [10,100,1000,2000]
