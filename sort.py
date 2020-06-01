@@ -1,6 +1,7 @@
 # compare sort algorithms
 # import packages
 from time import time
+import matplotlib.pyplot as plt
 # selection sort
 def selectionSort(target_list):
     """Takes a list as an input and sorts it using selection sort algorihtm
@@ -87,7 +88,8 @@ def merge(seq, start, mid, stop):
         i += 1
 
     for i in range(len(lst)):
-        seq[i] = lst[i]
+        seq[start + i] = lst[i]
+
 
 def mergeSortRecursively(seq, start, stop):
     """splits a sequence to two subsequences and  then
@@ -97,7 +99,7 @@ def mergeSortRecursively(seq, start, stop):
     Time complexity:
         O(n log(n)) where n = (stop - start)
     """
-    if start - stop <= 1:
+    if stop - start <= 1:
         return
 
     mid = ( start + stop ) // 2
@@ -127,11 +129,33 @@ algorithms["selection sort"] = (selectionSort, {})
 algorithms["merge sort"] = (mergeSort, {})
 
 # test sort algortims
-n = [10,100,1000,2000]
+n = [10,100,1000,10000]
+n = [1000]
+for i in range(1,20):
+    n.append(int(n[-1]*1.25))
+
+print(n)
 for i in n:
-    for _ , (algorithm_func , sort_times) in algorithms.items():
+    for name , (algorithm_func , sort_times) in algorithms.items():
         test_list = range(i,-1,-1)
         sort_time = test_sort_algorithm(algorithm_func, test_list)
         sort_times[i] = sort_time
+        print("{} for N = {} : O({}) = {:.0f} ms".format(name, i, i, sort_time*1000))
 
-print(algorithms.values())
+plt.figure(figsize=(10,10))
+for name, (_, sort_times) in algorithms.items():
+    points = [(k,v) for k,v in sort_times.items()]
+    points = sorted(points)
+    x = [point[0] for point in points]
+    y = [1000000000*point[1] for point in points]
+
+    plt.plot(x,y, '-o', label=name)
+
+plt.title("Time Complexity of Sort Algorithms")
+plt.xlabel("N")
+plt.ylim((1000000,10000000000))
+#plt.xscale("log")
+plt.yscale("log")
+plt.ylabel("Time Spent to Sort in nano-seconds (ns)")
+plt.legend()
+plt.savefig("sort_time_complexity.png")
