@@ -53,19 +53,72 @@ def test_sort_algorithm(function, test_list = range(10,-1,-1), verbose = False):
     sort_time = (toc - tic)
     return sort_time
 
-def mergeSort(test_list):
+
+def merge(seq, start, mid, stop):
+    """merges a sequence by splitting it to two subsequences
+
+    Args:
+        seq (list): a list which will be split it from start index to stop index
+            , split to two parts, and merge by comparing items
+        start (int): the start index for first probe
+        min (int): the start index for second probe and stop index for first probe
+        stop (int): the stop index for second probe
+
+    Results:
+        no result
+
+    Time complexity:
+        O(n)
+    """
+    lst = []
+    i = start
+    j = mid
+
+    while i < mid and j < stop:
+        if seq[i] < seq[j]:
+            lst.append(seq[i])
+            i += 1
+        else:
+            lst.append(seq[j])
+            j += 1
+
+    while i < mid:
+        lst.append(seq[i])
+        i += 1
+
+    for i in range(len(lst)):
+        seq[i] = lst[i]
+
+def mergeSortRecursively(seq, start, stop):
+    """splits a sequence to two subsequences and  then
+    sort and merge each subsequences using recursion
+    finally merges all subsequences
+
+    Time complexity:
+        O(n log(n)) where n = (stop - start)
+    """
+    if start - stop <= 1:
+        return
+
+    mid = ( start + stop ) // 2
+
+    mergeSortRecursively(seq, start, mid)
+    mergeSortRecursively(seq, mid, stop)
+    merge(seq, start, mid, stop)
+
+def mergeSort(seq):
     """Using merge algortim to sort items in test_list
 
     Args:
-        test_list (list): list of items
+        seq (list): list of items
 
     Returns:
         ---
 
     Time complexity:
-        O(n log(n))
+        O(n log(n)) where n = len(seq)
     """
-    pass
+    mergeSortRecursively(seq, 0, len(seq))
 
 
 # dictionary of algorithm
