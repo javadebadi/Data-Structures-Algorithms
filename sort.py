@@ -122,40 +122,47 @@ def mergeSort(seq):
     """
     mergeSortRecursively(seq, 0, len(seq))
 
+def main():
+    """ plot the
+    """
+    # dictionary of algorithm
+    algorithms = dict()
+    algorithms["selection sort"] = (selectionSort, {})
+    algorithms["merge sort"] = (mergeSort, {})
 
-# dictionary of algorithm
-algorithms = dict()
-algorithms["selection sort"] = (selectionSort, {})
-algorithms["merge sort"] = (mergeSort, {})
+    # test sort algortims
+    #n = [10,100,1000,10000]
+    n = [1000]
+    for i in range(1,3):
+        n.append(int(n[-1]*1.25))
 
-# test sort algortims
-n = [10,100,1000,10000]
-n = [1000]
-for i in range(1,20):
-    n.append(int(n[-1]*1.25))
 
-print(n)
-for i in n:
-    for name , (algorithm_func , sort_times) in algorithms.items():
-        test_list = range(i,-1,-1)
-        sort_time = test_sort_algorithm(algorithm_func, test_list)
-        sort_times[i] = sort_time
-        print("{} for N = {} : O({}) = {:.0f} ms".format(name, i, i, sort_time*1000))
+    for i in n:
+        for name , (algorithm_func , sort_times) in algorithms.items():
+            test_list = range(i,-1,-1)
+            sort_time = test_sort_algorithm(algorithm_func, test_list)
+            sort_times[i] = sort_time
+            print("{} for N = {} : O({}) = {:.0f} ms".format(name, i, i, sort_time*1000))
 
-plt.figure(figsize=(10,10))
-for name, (_, sort_times) in algorithms.items():
-    points = [(k,v) for k,v in sort_times.items()]
-    points = sorted(points)
-    x = [point[0] for point in points]
-    y = [1000000000*point[1] for point in points]
+    # plot time complexity
+    plt.figure(figsize=(10,10))
+    for name, (_, sort_times) in algorithms.items():
+        points = [(k,v) for k,v in sort_times.items()]
+        points = sorted(points)
+        x = [point[0] for point in points]
+        y = [1000000000*point[1] for point in points]
 
-    plt.plot(x,y, '-o', label=name)
+        plt.plot(x,y, '-o', label=name)
 
-plt.title("Time Complexity of Sort Algorithms")
-plt.xlabel("N")
-plt.ylim((1000000,10000000000))
-#plt.xscale("log")
-plt.yscale("log")
-plt.ylabel("Time Spent to Sort in nano-seconds (ns)")
-plt.legend()
-plt.savefig("sort_time_complexity.png")
+    plt.title("Time Complexity of Sort Algorithms")
+    plt.xlabel("N")
+    plt.ylim((1000000,10000000000))
+    #plt.xscale("log")
+    plt.yscale("log")
+    plt.ylabel("Time Spent to Sort in nano-seconds (ns)")
+    plt.legend()
+    plt.savefig("sort_time_complexity.png")
+
+
+if __name__ == "__main__":
+    main()
