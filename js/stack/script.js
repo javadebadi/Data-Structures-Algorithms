@@ -1,7 +1,4 @@
 let stack = new Stack()
-
-console.log(stack.size)
-
 let count = 0
 
 
@@ -15,9 +12,9 @@ popBtn.addEventListener('click', handlePopBtnClick)
 peekBtn.addEventListener('click', handlePeekBtnClick)
 
 
-function display () {
+function display() {
     stackLength.innerText = stack.size
-    
+
     stackItems.innerHTML = ""
     for (let item of stack.storage) {
         const div = document.createElement('div')
