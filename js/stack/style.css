@@ -1,0 +1,18 @@
+button {
+    padding: 10px;
+    background-color:deepskyblue;
+    border-radius: 10px;
+}
+
+.stack {
+    margin: 0 auto;
+}
+
+.stack-box {
+    text-align: center;
+    padding: 2px 20px;
+    margin: 2px 0px;
+    border-radius: 1px;
+    background-color: greenyellow;
+    max-width: 100px;
+}
