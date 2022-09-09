@@ -1,4 +1,5 @@
 class MyList:
+    
     def __init__(self, content = [], initial_size = 10):
         """
         the initial_size is added as a parameter so the programmer
