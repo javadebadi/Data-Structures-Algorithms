@@ -15,6 +15,9 @@ Time complexity of operations on Linked Lists is as following:
 - Prepend: O(1)
     To prepend to start fo the linked list the only operation needed is
     to access the head and swap it with newly created node
+- Insert: O(n)
+- Count: O(n)
+- Update: O(n)
 """
 
 class Node:
@@ -322,6 +325,11 @@ class LinkedList:
         Returns
         -------
         value : any
+
+        Raises
+        ------
+        IndexError
+            When the index is out of range this error will be raised
         """
         node = self.head
         assert type(index) == int and index >= 0
@@ -332,3 +340,28 @@ class LinkedList:
                 return node.value
             else:
                 node = node.next
+
+    def __setitem__(self, index, value):
+        """Updates the value of the node in given index.
+        
+        Time complexity: O(n)
+
+        Returns
+        -------
+        value : any
+
+        Raises
+        ------
+        IndexError
+            When the index is out of range this error will be raised
+        """
+        node = self.head
+        assert type(index) == int and index >= 0
+        for index_ in range(index + 1):
+            if node is None:
+                raise IndexError(f"index = '{index}' is out of range.")
+            if index_ == index:
+                node.value = value
+            else:
+                node = node.next
+        return None
