@@ -17,6 +17,7 @@ Time complexity of operations on Linked Lists is as following:
     to access the head and swap it with newly created node
 - Insert: O(n)
 - Count: O(n)
+- Delete: O(n)
 - Update: O(n)
 """
 
@@ -76,7 +77,7 @@ class LinkedList:
         -------
         None
         """
-        if self.head is None:
+        if self.is_empty():
             self.head = Node(value)
             return None
 
