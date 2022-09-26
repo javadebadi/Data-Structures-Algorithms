@@ -209,7 +209,7 @@ class MyList:
             value: a value to look up in items
 
         Returns:
-            (bool): True when the value exist in items, False otherwise
+    f        (bool): True when the value exist in items, False otherwise
 
         Time complexity:
             O(n)
