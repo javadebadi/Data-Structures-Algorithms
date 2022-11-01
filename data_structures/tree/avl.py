@@ -107,11 +107,30 @@ class AVLTree:
     def __init__(self) -> None:
         self.root = None
         self.path_stack = []
+        self.pivot = None
 
     def clear_path_stack(self):
         self.path_stack = []
+        self.pivot = None
 
-    # def rebalance()
+    def adjust_balances(self):
+        if self.root is None:
+            return 0
+        while self.path_stack:
+            child = self.path_stack.pop(0)
+            if self.path_stack:
+                node = self.path_stack[0]
+                if node.left is child:
+                    node.balance -= 1
+                elif node.right is child:
+                    node.balance += 1
+                if self.pivot is not None:
+                    if node is self.pivot:
+                        self.clear_path_stack()
+                        break
+        print("Adjusted balances")
+
+
 
     def insert(self, value):
 
@@ -123,19 +142,23 @@ class AVLTree:
             """
             if root is None:
                 root = AVLTree.AVLNode(item=value)
-                self.path_stack.append(root)
             else:
                 if value < root.item:
-                    self.path_stack.append(root.left)
+                    if abs(root.balance) != 0:
+                        self.pivot = root
                     root.left = __insert(root.left, value)
-                    root.balance -= 1
                 else:
-                    self.path_stack.append(root.right)
+                    if abs(root.balance) != 0:
+                        self.pivot = root
                     root.right = __insert(root.right, value)
-                    root.balance += 1
+            self.path_stack.append(root)
             return root
 
+        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        print(self.pivot)
+
         self.root = __insert(self.root, value)
+        self.adjust_balances()
         logger.info(self.__str__())
         logger.info(self.path_stack)
 
@@ -188,6 +211,7 @@ tree.insert(4)
 tree.insert(13)
 tree.insert(40)
 tree.insert(39)
+tree.insert(12)
 tree.insert(38)
 logger.info(tree.to_d3_hierarchy())
 tree.to_d3_html()
