@@ -1,0 +1,316 @@
+2022-11-01 06:28:21,382 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 0,
+        "left": null,
+        "right": null
+    }
+}
+2022-11-01 06:28:21,382 - avl - INFO - []
+2022-11-01 06:28:21,382 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 1,
+        "left": null,
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": null,
+            "right": null
+        }
+    }
+}
+2022-11-01 06:28:21,382 - avl - INFO - []
+2022-11-01 06:28:21,383 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 0,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": null,
+            "right": null
+        },
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": null,
+            "right": null
+        }
+    }
+}
+2022-11-01 06:28:21,383 - avl - INFO - []
+2022-11-01 06:28:21,383 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": -1,
+        "left": {
+            "item": 3,
+            "balance": -1,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": null
+        },
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": null,
+            "right": null
+        }
+    }
+}
+2022-11-01 06:28:21,383 - avl - INFO - []
+2022-11-01 06:28:21,384 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": -1,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 4,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": null,
+            "right": null
+        }
+    }
+}
+2022-11-01 06:28:21,384 - avl - INFO - []
+2022-11-01 06:28:21,384 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 0,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 4,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "item": 18,
+            "balance": -1,
+            "left": {
+                "item": 13,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": null
+        }
+    }
+}
+2022-11-01 06:28:21,385 - avl - INFO - []
+2022-11-01 06:28:21,386 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 0,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 4,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": {
+                "item": 13,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 40,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        }
+    }
+}
+2022-11-01 06:28:21,386 - avl - INFO - []
+2022-11-01 06:28:21,387 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 1,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 4,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "item": 18,
+            "balance": 1,
+            "left": {
+                "item": 13,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 40,
+                "balance": -1,
+                "left": {
+                    "item": 39,
+                    "balance": 0,
+                    "left": null,
+                    "right": null
+                },
+                "right": null
+            }
+        }
+    }
+}
+2022-11-01 06:28:21,387 - avl - INFO - []
+2022-11-01 06:28:21,387 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 1,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 4,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": {
+                "item": 13,
+                "balance": -1,
+                "left": {
+                    "item": 12,
+                    "balance": 0,
+                    "left": null,
+                    "right": null
+                },
+                "right": null
+            },
+            "right": {
+                "item": 40,
+                "balance": -1,
+                "left": {
+                    "item": 39,
+                    "balance": 0,
+                    "left": null,
+                    "right": null
+                },
+                "right": null
+            }
+        }
+    }
+}
+2022-11-01 06:28:21,387 - avl - INFO - []
+2022-11-01 06:28:21,388 - avl - INFO - {
+    "root": {
+        "item": 10,
+        "balance": 1,
+        "left": {
+            "item": 3,
+            "balance": 0,
+            "left": {
+                "item": 2,
+                "balance": 0,
+                "left": null,
+                "right": null
+            },
+            "right": {
+                "item": 4,
+                "balance": 0,
+                "left": null,
+                "right": null
+            }
+        },
+        "right": {
+            "item": 18,
+            "balance": 0,
+            "left": {
+                "item": 13,
+                "balance": -1,
+                "left": {
+                    "item": 12,
+                    "balance": 0,
+                    "left": null,
+                    "right": null
+                },
+                "right": null
+            },
+            "right": {
+                "item": 40,
+                "balance": -2,
+                "left": {
+                    "item": 39,
+                    "balance": -1,
+                    "left": {
+                        "item": 38,
+                        "balance": 0,
+                        "left": null,
+                        "right": null
+                    },
+                    "right": null
+                },
+                "right": null
+            }
+        }
+    }
+}
+2022-11-01 06:28:21,388 - avl - INFO - []
+2022-11-01 06:28:21,388 - avl - INFO - [{'name': '(10, 1)', 'children': [{'name': '(18, 0)', 'children': [{'name': '(40, -2)', 'children': [{'name': 'null'}, {'name': '(39, -1)', 'children': [{'name': 'null'}, {'name': '(38, 0)'}]}]}, {'name': '(13, -1)', 'children': [{'name': 'null'}, {'name': '(12, 0)'}]}]}, {'name': '(3, 0)', 'children': [{'name': '(4, 0)'}, {'name': '(2, 0)'}]}]}]

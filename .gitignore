@@ -1,2 +1,4 @@
 *.pyc
 private.txt
+.venv/
+__pycache__/
